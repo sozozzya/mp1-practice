@@ -1,11 +1,15 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <math.h>
+#include <locale.h>
 int main()
 {
+	setlocale(LC_ALL, "Rus");
+	setlocale(LC_NUMERIC, "C");
 	float x1, y1, r1, x2, y2, r2, d;
-	printf("¬ведите координаты центра первой окружности и еЄ радиус");
+	printf("¬ведите координаты центра первой окружности и еЄ радиус: ");
 	scanf("%f %f %f", &x1, &y1, &r1);
-	printf("¬ведите координаты центра второй окружности и еЄ радиус");
+	printf("¬ведите координаты центра второй окружности и еЄ радиус: ");
 	scanf("%f %f %f", &x2, &y2, &r2);
 	d = sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 	if (d==0)
@@ -23,12 +27,12 @@ int main()
 	}
 	else
 	{
-		if ((d == r2 - r1) || (d == r2 + r1))
+		if ((d == abs(r2 - r1)) || (d == r2 + r1))
 		{
 			printf("ќкружности имеют ровно одну общую точку");
 			return 0;
 		}
-		if ((d > r2 - r1) || (d < r2 + r1))
+		if ((d > abs(r2 - r1)) && (d < r2 + r1))
 		{
 			printf("ќкружности имеют ровно две общие точки");
 			return 0;
