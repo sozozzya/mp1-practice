@@ -19,7 +19,7 @@ void main()
 		r = rand() % 10;
 		for (j = 0; j < i; j++)
 		{
-			if (a[j] == r) 
+			if (a[j] == r)
 				break;
 		}
 		if (j == i)
